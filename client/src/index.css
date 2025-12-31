@@ -1,0 +1,11 @@
+@import "tailwindcss";
+
+#contractor-sidebar {
+  width: 15rem; /* 240px */
+  min-height: 100vh;
+  position: fixed;
+  left: 0;
+  top: 0;
+  background: white;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+}
