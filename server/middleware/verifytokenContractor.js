@@ -1,5 +1,5 @@
 import jwt from "jsonwebtoken";
-import ContractorSchema from "../schema/ContractorSchema.js";
+import Contractor from "../schema/ContractorSchema.js";
 
 export const verifyTokenContractor = async (req, res, next) => {
   try {
@@ -13,7 +13,7 @@ export const verifyTokenContractor = async (req, res, next) => {
     // ✅ extract contractorId from decoded token
     req.contractorId = decoded.contractorId;  // <-- THIS LINE WAS MISSING ❗
 
-    const contractor = await ContractorSchema.findById(decoded.contractorId).select("-password");
+    const contractor = await Contractor.findById(decoded.contractorId).select("-password");
     if (!contractor) return res.status(404).json({ message: "Contractor not found" });
 
     req.contractor = contractor; // optional (if you want full contractor object)
